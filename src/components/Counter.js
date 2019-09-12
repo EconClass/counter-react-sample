@@ -18,11 +18,6 @@ class Counter extends Component {
   render() {
     return (
       <div className="Counter">
-        {/* This element displays the value of this.state.count */}
-        {/* <Title text={this.state.count} /> */}
-
-        {/* This button will change this.state.count each time it is clicked
-        by adding one. You must change state by calling this.setState() */}
         <button
           onClick={() => {
             this.props.onClick()
