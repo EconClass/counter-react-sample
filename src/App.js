@@ -5,6 +5,7 @@ import "./App.css";
 
 import Counter from "./components/Counter";
 import Title from "./components/Title";
+import Factory from "./components/Factory";
 
 class App extends React.Component {
   constructor() {
@@ -15,6 +16,12 @@ class App extends React.Component {
     this.setState({ count: this.state.count + modifier })
   }
   render() {
+    let factory;
+    if (this.state.count > 10) {
+      factory = <Factory />
+    } else {
+      factory = null;
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -27,29 +34,13 @@ class App extends React.Component {
 
           {/* Counts in 3s */}
           <Counter modifier={3} onClick={() => { this.increment(3) }} />
+          {factory}
           {/* <SVG /> */}
+
         </header>
       </div>
     );
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         {/* Counts in 1s */}
-//         <Counter modifier={1} />
-
-//         {/* Counts in 5s */}
-//         <Counter modifier={5} />
-
-//         {/* Counts in 3s */}
-//         <Counter modifier={3} />
-//         {/* <SVG /> */}
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
